@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Corporate Forensics | CA Shareesh Gadde</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,12 +21,9 @@
     :root{
       --orange:#F49B19;
       --orange-dark:#E47510;
-      --orange-light:#EFA652;
-
       --navy:#161E5B;
       --black:#000000;
       --white:#FFFFFF;
-
       --blue:#0c3981;
       --blue-2:#2563EB;
     }
@@ -28,17 +31,13 @@
     body { font-family: 'Inter', sans-serif; }
     details summary::-webkit-details-marker { display:none; }
 
-    /* Dotted pattern */
     .dot-bg{
       background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
       background-size: 18px 18px;
     }
 
-    .orange-glow{
-      box-shadow: 0 0 55px rgba(244,155,25,0.22);
-    }
+    .orange-glow{ box-shadow: 0 0 55px rgba(244,155,25,0.22); }
 
-    /* Buttons */
     .btn-primary{
       background: var(--orange);
       color: var(--black);
@@ -53,7 +52,6 @@
     }
     .btn-ghost:hover{ background: rgba(244,155,25,0.12); }
 
-    /* Glass */
     .glass{
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
@@ -64,7 +62,6 @@
     .text-muted{ color: rgba(255,255,255,0.72); }
     .text-soft{ color: rgba(255,255,255,0.60); }
 
-    /* Alignment helpers */
     section { scroll-margin-top: 90px; }
 
     .section-wrap{
@@ -74,7 +71,6 @@
       padding-right: 1.5rem;
     }
 
-    /* Global heading style (Blue + White) */
     .heading-main{
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -88,8 +84,48 @@
       margin-top: 0.75rem;
     }
 
-    /* Prevent background scroll when modal open */
     .no-scroll{ overflow: hidden; }
+
+    .section-title{ text-align: center; margin-bottom: 3rem; }
+    .section-card{ max-width: 44rem; margin: 0 auto; padding: 2rem; }
+
+    /* ===== Smaller Modal + Icon Inputs ===== */
+    .field{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+      padding:.7rem .85rem;
+      border-radius: 1rem;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .field:focus-within{
+      border-color: rgba(244,155,25,0.55);
+      box-shadow: 0 0 0 3px rgba(244,155,25,0.18);
+    }
+    .field i{
+      width: 1.1rem;
+      text-align:center;
+      color: rgba(255,255,255,0.72);
+    }
+    .field input,
+    .field textarea{
+      width:100%;
+      background: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 0.95rem;
+    }
+    .field textarea{ resize: none; }
+    .hint{ font-size: .72rem; color: rgba(255,255,255,0.55); margin-top: .25rem; }
+
+    .modal-card{
+      width: 100%;
+      max-width: 26rem; /* reduced size */
+      padding: 1.15rem; /* reduced padding */
+      border-radius: 1.5rem;
+    }
   </style>
 </head>
 
@@ -117,12 +153,9 @@
 </header>
 
 <!-- HERO -->
-<!-- HERO -->
 <section id="home" class="relative overflow-hidden">
-  <!-- Background -->
   <div class="absolute inset-0 bg-black"></div>
 
-  <!-- Blue accents -->
   <div class="absolute inset-0 opacity-30"
        style="background: radial-gradient(circle at 20% 25%, rgba(12,57,129,0.55), transparent 55%);"></div>
   <div class="absolute inset-0 opacity-25"
@@ -133,7 +166,6 @@
   <div class="relative section-wrap pt-20 pb-14 lg:pt-24 lg:pb-20">
     <div class="grid lg:grid-cols-12 gap-12 items-center">
 
-      <!-- LEFT : IMAGE -->
       <div class="lg:col-span-5 flex justify-center lg:justify-start">
         <img
           src="images/bookimg-removebg-preview.png"
@@ -143,22 +175,18 @@
         />
       </div>
 
-      <!-- RIGHT : CONTENT -->
       <div class="lg:col-span-7 text-center lg:text-left">
 
-        <!-- Heading -->
         <h1 class="heading-main text-4xl sm:text-5xl lg:text-6xl">
           <span class="white">Corporate</span>
           <span class="blue"> Forensics</span>
         </h1>
 
-        <!-- Subheading -->
         <p class="heading-sub max-w-xl mx-auto lg:mx-0">
           A definitive guide to detecting corporate fraud, strengthening governance,
           and managing financial risks in the Digital & AI era.
         </p>
 
-        <!-- Audience chips -->
         <div class="mt-5 flex flex-wrap gap-3 justify-center lg:justify-start text-sm font-semibold">
           <span class="glass px-4 py-2 rounded-full">Chartered Accountants</span>
           <span class="glass px-4 py-2 rounded-full">CFOs & Finance Leaders</span>
@@ -166,7 +194,6 @@
           <span class="glass px-4 py-2 rounded-full">Lawyers & Regulators</span>
         </div>
 
-        <!-- Value points -->
         <ul class="mt-6 space-y-3 text-muted max-w-xl mx-auto lg:mx-0 text-left">
           <li>✔ Real-world forensic case patterns & fraud red flags</li>
           <li>✔ Digital fraud & AI-era risk frameworks</li>
@@ -174,7 +201,6 @@
           <li>✔ Practical tools used by forensic professionals</li>
         </ul>
 
-        <!-- CTA -->
         <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
           <a href="javascript:void(0)"
              class="open-buy inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-extrabold btn-primary orange-glow transition">
@@ -187,7 +213,6 @@
           </a>
         </div>
 
-        <!-- Trust line -->
         <p class="mt-4 text-xs text-soft">
           Authored by a Forensic Auditor | CA | CFE | CMA | IFRS (ACCA)
         </p>
@@ -197,7 +222,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- AUTHOR -->
 <section id="author" class="py-16 relative overflow-hidden">
@@ -212,18 +236,15 @@
 
   <div class="relative section-wrap">
 
- <div class="mb-10 text-center">
-  <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
-    <span class="white">About the</span>
-    <span class="blue"> Author</span>
-  </h2>
-
-</div>
-
+    <div class="section-title">
+      <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
+        <span class="white">About the</span>
+        <span class="blue"> Author</span>
+      </h2>
+    </div>
 
     <div class="grid lg:grid-cols-12 gap-10 items-center">
-      <!-- TEXT -->
-      <div class="lg:col-span-7 text-center lg:text-left">
+      <div class="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
         <ul class="space-y-3 text-base sm:text-lg text-muted leading-relaxed list-disc pl-5 inline-block text-left">
           <li><span class="font-semibold text-white">Forensic Auditor</span></li>
           <li>Chartered Accountant <span class="font-semibold text-white">(CA)</span></li>
@@ -247,15 +268,13 @@
         </div>
       </div>
 
-      <!-- IMAGE -->
       <div class="lg:col-span-5 flex justify-center lg:justify-end">
         <img
-  src="images/Shareesh.jpg"
-  alt="CA Shareesh Gadde"
-  class="w-full max-w-xs lg:max-w-sm object-cover rounded-2xl"
-  style="filter: drop-shadow(0 25px 30px rgba(0,0,0,0.7));"
-/>
-
+          src="images/Shareesh.jpg"
+          alt="CA Shareesh Gadde"
+          class="w-full max-w-xs lg:max-w-sm object-cover rounded-2xl"
+          style="filter: drop-shadow(0 25px 30px rgba(0,0,0,0.7));"
+        />
       </div>
     </div>
   </div>
@@ -263,23 +282,18 @@
 
 <!-- ABOUT BOOK & EVENT -->
 <section id="overview" class="py-16 relative overflow-hidden">
-  <!-- Background -->
   <div class="absolute inset-0 bg-black"></div>
 
-  <!-- Blue glow accents -->
   <div class="absolute inset-0 opacity-30"
        style="background: radial-gradient(circle at 20% 30%, rgba(12,57,129,0.65), transparent 60%);"></div>
   <div class="absolute inset-0 opacity-25"
        style="background: radial-gradient(circle at 85% 70%, rgba(37,99,235,0.45), transparent 65%);"></div>
 
-  <!-- Dots -->
   <div class="absolute inset-0 dot-bg opacity-25"></div>
 
-  <!-- Content -->
   <div class="relative section-wrap">
 
-    <!-- Heading -->
-    <div class="text-center mb-12">
+    <div class="section-title">
       <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
         <span class="white">About the</span>
         <span class="blue"> Book</span>
@@ -289,10 +303,8 @@
       </p>
     </div>
 
-    <!-- Center Card -->
     <div class="flex justify-center">
-      <div class="  p-8 text-center max-w-2xl w-full">
-
+      <div class="glass section-card text-center w-full">
 
         <p class="text-muted leading-relaxed mb-6">
           <strong class="text-white">Corporate Forensics</strong> is written for professionals who must
@@ -310,7 +322,6 @@
       </div>
     </div>
 
-    <!-- CTA -->
     <div class="mt-12 flex justify-center">
       <a href="javascript:void(0)"
          class="open-buy inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-extrabold transition"
@@ -321,7 +332,6 @@
 
   </div>
 </section>
-
 
 <!-- WHAT'S INCLUDED -->
 <section id="included" class="py-16 relative overflow-hidden">
@@ -334,7 +344,7 @@
        style="background: radial-gradient(circle at 82% 55%, rgba(37,99,235,0.30), transparent 65%);"></div>
 
   <div class="relative section-wrap">
-    <div class="text-center">
+    <div class="section-title">
       <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
         <span class="white">What’s</span>
         <span class="blue"> Included</span>
@@ -344,18 +354,17 @@
 
     <div class="mt-10 grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-6 flex justify-center">
-  <div class="rounded-3xl p-6 glass flex justify-center items-center">
-    <img
-      src="images/bookimg-removebg-preview.png"
-      alt="Book Mock"
-      class="w-full max-w-sm object-contain"
-    />
-  </div>
-</div>
+        <div class="rounded-3xl p-6 glass flex justify-center items-center">
+          <img
+            src="images/bookimg-removebg-preview.png"
+            alt="Book Mock"
+            class="w-full max-w-sm object-contain"
+          />
+        </div>
+      </div>
 
-
-      <div class="lg:col-span-6 text-center lg:text-left">
-        <p class="text-muted mb-5">
+      <div class="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+        <p class="text-muted mb-5 max-w-xl">
           This book is structured to help professionals apply forensic thinking immediately—through tools,
           frameworks, templates, and practical examples.
         </p>
@@ -412,118 +421,183 @@
 
 <!-- =======================
      BUY POPUP FORM (MODAL)
+     Smaller + Icon Inputs
 ======================= -->
 <div id="buyModal" class="fixed inset-0 z-[999] hidden">
   <div id="buyOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
-  <div class="relative min-h-screen flex items-center justify-center p-5">
-    <div class="w-full max-w-lg glass rounded-3xl p-7 relative">
+  <div class="relative min-h-screen flex items-center justify-center p-4">
+    <div class="modal-card glass relative">
+
       <button id="closeBuyModal"
-        class="absolute top-4 right-4 h-10 w-10 rounded-full glass flex items-center justify-center hover:opacity-90 transition"
+        class="absolute top-3 right-3 h-9 w-9 rounded-full glass flex items-center justify-center hover:opacity-90 transition"
         aria-label="Close">
-        ✕
+        <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <h3 class="heading-main text-2xl sm:text-3xl text-center">
-        <span class="white">Get Your</span>
-        <span class="blue"> Copy</span>
-      </h3>
-      <p class="heading-sub text-center">
-        Fill the form — we’ll contact you with purchase details.
-      </p>
+      <div class="pr-10">
+        <h3 class="text-lg font-extrabold leading-tight">Get Your Information</h3>
+        <p class="text-soft text-xs mt-1">Fill in your details. We’ll confirm your order shortly.</p>
+      </div>
 
-      <form id="buyForm" class="mt-6 space-y-4">
+      <form id="buyForm" class="mt-5 space-y-3">
+
         <div>
-          <label class="text-sm font-semibold">Name</label>
-          <input required type="text" name="name"
-            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-            placeholder="Enter your name">
+          <div class="field">
+            <i class="fa-solid fa-user"></i>
+            <input required type="text" name="name" placeholder="Full name">
+          </div>
         </div>
 
         <div>
-          <label class="text-sm font-semibold">Phone</label>
-          <input required type="tel" name="phone"
-            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-            placeholder="Enter your phone number">
+          <div class="field">
+            <i class="fa-solid fa-phone"></i>
+            <input required type="tel" name="phone" placeholder="Phone number" inputmode="tel">
+          </div>
         </div>
 
         <div>
-          <label class="text-sm font-semibold">Email</label>
-          <input required type="email" name="email"
-            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-            placeholder="Enter your email">
+          <div class="field">
+            <i class="fa-solid fa-envelope"></i>
+            <input required type="email" name="email" placeholder="Email address" inputmode="email">
+          </div>
         </div>
 
         <div>
-          <label class="text-sm font-semibold">Address</label>
-          <textarea required name="address" rows="3"
-            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-            placeholder="Enter delivery address"></textarea>
+          <div class="field items-start">
+            <i class="fa-solid fa-location-dot mt-0.5"></i>
+            <textarea required name="address" rows="2" placeholder="Delivery address"></textarea>
+          </div>
         </div>
 
-        <button type="submit"
-          class="w-full rounded-xl px-6 py-3 text-sm font-extrabold btn-primary orange-glow transition">
+        <button id="submitBuyBtn" type="submit"
+          class="w-full rounded-xl px-5 py-2.5 text-sm font-extrabold btn-primary orange-glow transition">
           Submit
         </button>
 
-        <p class="text-xs text-soft text-center">
+        <p class="text-[11px] text-soft text-center leading-relaxed">
           By submitting, you agree to be contacted for order confirmation.
         </p>
       </form>
 
-      <div id="buySuccess" class="hidden mt-6 text-center">
-        <div class="mx-auto h-12 w-12 rounded-full flex items-center justify-center text-xl font-extrabold"
+      <div id="buySuccess" class="hidden mt-5 text-center">
+        <div class="mx-auto h-11 w-11 rounded-full flex items-center justify-center text-lg font-extrabold"
              style="background: var(--orange); color: var(--black);">✓</div>
-        <p class="mt-4 font-extrabold text-lg">Thank you!</p>
-        <p class="mt-1 text-muted">We received your details. We’ll contact you shortly.</p>
+        <p class="mt-3 font-extrabold text-base">Thank you!</p>
+        <p class="mt-1 text-muted text-sm">We received your details. We’ll contact you shortly.</p>
         <button id="doneBuyModal"
-          class="mt-6 inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-extrabold transition"
+          class="mt-4 inline-flex items-center justify-center rounded-xl px-7 py-2.5 text-sm font-extrabold transition"
           style="background: var(--orange); color: var(--black);">
           Done
         </button>
       </div>
+
     </div>
   </div>
 </div>
 
 <script>
-  const buyModal = document.getElementById("buyModal");
-  const buyOverlay = document.getElementById("buyOverlay");
-  const closeBuyModal = document.getElementById("closeBuyModal");
-  const doneBuyModal = document.getElementById("doneBuyModal");
+  // --- 1. CONFIGURATION ---
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwdjD3M8iQEmz2lzBE87iSiTvi37wY0ceRBj0AvrlE963cWr7AG6uXF_Ypl5G9TD--5Xw/exec";
 
-  const buyForm = document.getElementById("buyForm");
+  const buyModal   = document.getElementById("buyModal");
+  const buyForm    = document.getElementById("buyForm");
   const buySuccess = document.getElementById("buySuccess");
+  const buyOverlay = document.getElementById("buyOverlay");
+  const submitBtn  = document.getElementById("submitBuyBtn");
 
-  function openModal(){
+  // --- 2. MODAL CONTROLS ---
+  function openModal() {
     buyModal.classList.remove("hidden");
     document.body.classList.add("no-scroll");
-    buySuccess.classList.add("hidden");
+
     buyForm.classList.remove("hidden");
+    buySuccess.classList.add("hidden");
     buyForm.reset();
+
+    // Focus first input for better UX
+    const first = buyForm.querySelector('input[name="name"]');
+    if (first) first.focus();
   }
 
-  function closeModal(){
+  function closeModal() {
     buyModal.classList.add("hidden");
     document.body.classList.remove("no-scroll");
   }
 
-  document.querySelectorAll(".open-buy").forEach(btn => {
+  // Open modal buttons
+  document.querySelectorAll(".open-buy").forEach((btn) => {
     btn.addEventListener("click", openModal);
   });
 
+  // Close events
+  document.getElementById("closeBuyModal").addEventListener("click", closeModal);
+  document.getElementById("doneBuyModal").addEventListener("click", closeModal);
   buyOverlay.addEventListener("click", closeModal);
-  closeBuyModal.addEventListener("click", closeModal);
-  if(doneBuyModal) doneBuyModal.addEventListener("click", closeModal);
 
+  // Close on ESC
   document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && !buyModal.classList.contains("hidden")) closeModal();
+    if (e.key === "Escape" && !buyModal.classList.contains("hidden")) closeModal();
   });
 
-  buyForm.addEventListener("submit", function(e){
+  // --- 3. FORM SUBMISSION LOGIC ---
+  buyForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    buyForm.classList.add("hidden");
-    buySuccess.classList.remove("hidden");
+
+     Swal.fire({
+    title: 'Please wait...',
+    text: 'Your Order Is Under Process',
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+    const originalText = submitBtn.innerText;
+
+    submitBtn.innerText = "Processing...";
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-75");
+
+    fetch(scriptURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: new FormData(buyForm),
+    })
+      .then(() => {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#F49B19", "#0c3981", "#ffffff"],
+        });
+
+        Swal.fire({
+          title: "Order Confirm",
+          text: "We Will Reach Out In a while.",
+          icon: "success",
+          confirmButtonColor: "#F49B19",
+          iconColor: "#F49B19",
+        });
+
+        buyForm.classList.add("hidden");
+        buySuccess.classList.remove("hidden");
+      })
+      .catch((error) => {
+        console.error("Submit error:", error);
+        Swal.fire({
+          title: "Oops...",
+          text: "Failed to submit. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#161E5B",
+        });
+      })
+      .finally(() => {
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("opacity-75");
+      });
   });
 </script>
 
