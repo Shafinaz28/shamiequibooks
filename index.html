@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Forensics | CA Shareesh Gadde</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --orange:#F49B19;
+      --orange-dark:#E47510;
+      --orange-light:#EFA652;
+
+      --navy:#161E5B;
+      --black:#000000;
+      --white:#FFFFFF;
+
+      --blue:#0c3981;
+      --blue-2:#2563EB;
+    }
+
+    body { font-family: 'Inter', sans-serif; }
+    details summary::-webkit-details-marker { display:none; }
+
+    /* Dotted pattern */
+    .dot-bg{
+      background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .orange-glow{
+      box-shadow: 0 0 55px rgba(244,155,25,0.22);
+    }
+
+    /* Buttons */
+    .btn-primary{
+      background: var(--orange);
+      color: var(--black);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .btn-primary:hover{ background: var(--orange-dark); }
+
+    .btn-ghost{
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(244,155,25,0.55);
+    }
+    .btn-ghost:hover{ background: rgba(244,155,25,0.12); }
+
+    /* Glass */
+    .glass{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .text-muted{ color: rgba(255,255,255,0.72); }
+    .text-soft{ color: rgba(255,255,255,0.60); }
+
+    /* Alignment helpers */
+    section { scroll-margin-top: 90px; }
+
+    .section-wrap{
+      max-width: 72rem;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* Global heading style (Blue + White) */
+    .heading-main{
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .heading-main .white{ color:#ffffff; }
+    .heading-main .blue{ color: var(--blue); }
+    .heading-sub{
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Prevent background scroll when modal open */
+    .no-scroll{ overflow: hidden; }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md">
+  <div class="section-wrap py-4 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3">
+      <img
+        src="./images/cropped-shamitree-logo.png"
+        alt="Shamiequi Books Logo"
+        class="h-9 w-auto block"
+        style="filter: brightness(0) invert(1);"
+      >
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="#overview"
+        class="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-extrabold btn-primary orange-glow transition">
+        Get Information
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<!-- HERO -->
+<section id="home" class="relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-black"></div>
+
+  <!-- Blue accents -->
+  <div class="absolute inset-0 opacity-30"
+       style="background: radial-gradient(circle at 20% 25%, rgba(12,57,129,0.55), transparent 55%);"></div>
+  <div class="absolute inset-0 opacity-25"
+       style="background: radial-gradient(circle at 80% 70%, rgba(37,99,235,0.40), transparent 60%);"></div>
+
+  <div class="absolute inset-0 dot-bg opacity-35"></div>
+
+  <div class="relative section-wrap pt-20 pb-14 lg:pt-24 lg:pb-20">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <!-- LEFT : IMAGE -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-start">
+        <img
+          src="images/bookimg-removebg-preview.png"
+          alt="Corporate Forensics Book Cover"
+          class="w-full max-w-sm object-contain"
+          style="filter: drop-shadow(0 35px 35px rgba(0,0,0,0.75));"
+        />
+      </div>
+
+      <!-- RIGHT : CONTENT -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+
+        <!-- Heading -->
+        <h1 class="heading-main text-4xl sm:text-5xl lg:text-6xl">
+          <span class="white">Corporate</span>
+          <span class="blue"> Forensics</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="heading-sub max-w-xl mx-auto lg:mx-0">
+          A definitive guide to detecting corporate fraud, strengthening governance,
+          and managing financial risks in the Digital & AI era.
+        </p>
+
+        <!-- Audience chips -->
+        <div class="mt-5 flex flex-wrap gap-3 justify-center lg:justify-start text-sm font-semibold">
+          <span class="glass px-4 py-2 rounded-full">Chartered Accountants</span>
+          <span class="glass px-4 py-2 rounded-full">CFOs & Finance Leaders</span>
+          <span class="glass px-4 py-2 rounded-full">Corporate Boards</span>
+          <span class="glass px-4 py-2 rounded-full">Lawyers & Regulators</span>
+        </div>
+
+        <!-- Value points -->
+        <ul class="mt-6 space-y-3 text-muted max-w-xl mx-auto lg:mx-0 text-left">
+          <li>✔ Real-world forensic case patterns & fraud red flags</li>
+          <li>✔ Digital fraud & AI-era risk frameworks</li>
+          <li>✔ Governance, compliance & investigation playbooks</li>
+          <li>✔ Practical tools used by forensic professionals</li>
+        </ul>
+
+        <!-- CTA -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a href="javascript:void(0)"
+             class="open-buy inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-extrabold btn-primary orange-glow transition">
+            Get My Copy Now
+          </a>
+
+          <a href="#overview"
+             class="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-extrabold btn-ghost transition">
+            Learn More
+          </a>
+        </div>
+
+        <!-- Trust line -->
+        <p class="mt-4 text-xs text-soft">
+          Authored by a Forensic Auditor | CA | CFE | CMA | IFRS (ACCA)
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- AUTHOR -->
+<section id="author" class="py-16 relative overflow-hidden">
+  <div class="absolute inset-0 bg-black"></div>
+
+  <div class="absolute inset-0 opacity-35"
+       style="background: radial-gradient(circle at 15% 30%, rgba(12,57,129,0.65), transparent 60%);"></div>
+  <div class="absolute inset-0 opacity-25"
+       style="background: radial-gradient(circle at 85% 70%, rgba(37,99,235,0.45), transparent 65%);"></div>
+
+  <div class="absolute inset-0 dot-bg opacity-20"></div>
+
+  <div class="relative section-wrap">
+
+ <div class="mb-10 text-center">
+  <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
+    <span class="white">About the</span>
+    <span class="blue"> Author</span>
+  </h2>
+
+</div>
+
+
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <!-- TEXT -->
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <ul class="space-y-3 text-base sm:text-lg text-muted leading-relaxed list-disc pl-5 inline-block text-left">
+          <li><span class="font-semibold text-white">Forensic Auditor</span></li>
+          <li>Chartered Accountant <span class="font-semibold text-white">(CA)</span></li>
+          <li>Certified Fraud Examiner <span class="font-semibold text-white">(CFE)</span></li>
+          <li>Cost Accountant <span class="font-semibold text-white">(CMA)</span></li>
+          <li>Diploma in IFRS <span class="font-semibold text-white">(ACCA)</span></li>
+          <li>Corporate Trainer</li>
+          <li>
+            Helping businesses & CPAs with
+            <span class="font-semibold text-white">Accounting, Compliance & Forensics</span>
+            from India
+          </li>
+        </ul>
+
+        <div class="mt-10">
+          <a href="javascript:void(0)"
+             class="open-buy inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-extrabold transition"
+             style="background: var(--orange); color: var(--black);">
+            Get My eBook Now
+          </a>
+        </div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <img
+  src="images/Shareesh.jpg"
+  alt="CA Shareesh Gadde"
+  class="w-full max-w-xs lg:max-w-sm object-cover rounded-2xl"
+  style="filter: drop-shadow(0 25px 30px rgba(0,0,0,0.7));"
+/>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BOOK & EVENT -->
+<section id="overview" class="py-16 relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-black"></div>
+
+  <!-- Blue glow accents -->
+  <div class="absolute inset-0 opacity-30"
+       style="background: radial-gradient(circle at 20% 30%, rgba(12,57,129,0.65), transparent 60%);"></div>
+  <div class="absolute inset-0 opacity-25"
+       style="background: radial-gradient(circle at 85% 70%, rgba(37,99,235,0.45), transparent 65%);"></div>
+
+  <!-- Dots -->
+  <div class="absolute inset-0 dot-bg opacity-25"></div>
+
+  <!-- Content -->
+  <div class="relative section-wrap">
+
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
+        <span class="white">About the</span>
+        <span class="blue"> Book</span>
+      </h2>
+      <p class="heading-sub max-w-2xl mx-auto">
+        What you’ll gain from the book — and what the exclusive launch event delivers.
+      </p>
+    </div>
+
+    <!-- Center Card -->
+    <div class="flex justify-center">
+      <div class="  p-8 text-center max-w-2xl w-full">
+
+
+        <p class="text-muted leading-relaxed mb-6">
+          <strong class="text-white">Corporate Forensics</strong> is written for professionals who must
+          proactively identify fraud, investigate financial anomalies, strengthen governance,
+          and safeguard organizations against modern digital and AI-driven risks.
+        </p>
+
+        <ul class="space-y-3 text-muted leading-relaxed list-disc pl-5 inline-block text-left">
+          <li>Practical, real-world guidance for the <span class="font-semibold text-white">Digital & AI era</span></li>
+          <li>Forensic auditing, fraud detection & compliance frameworks</li>
+          <li>Governance, risk management & investigation playbooks</li>
+          <li>Designed for <span class="font-semibold text-white">CAs, CFOs, Lawyers, Regulators & Business Leaders</span></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 flex justify-center">
+      <a href="javascript:void(0)"
+         class="open-buy inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-extrabold transition"
+         style="background: var(--orange); color: var(--black);">
+        Reserve Your Spot / Get the Book
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- WHAT'S INCLUDED -->
+<section id="included" class="py-16 relative overflow-hidden">
+  <div class="absolute inset-0 bg-black"></div>
+  <div class="absolute inset-0 dot-bg opacity-25"></div>
+
+  <div class="absolute inset-0 opacity-18"
+       style="background: radial-gradient(circle at 18% 40%, rgba(12,57,129,0.40), transparent 60%);"></div>
+  <div class="absolute inset-0 opacity-14"
+       style="background: radial-gradient(circle at 82% 55%, rgba(37,99,235,0.30), transparent 65%);"></div>
+
+  <div class="relative section-wrap">
+    <div class="text-center">
+      <h2 class="heading-main text-3xl sm:text-4xl lg:text-5xl">
+        <span class="white">What’s</span>
+        <span class="blue"> Included</span>
+      </h2>
+      <p class="heading-sub">Toolkits, checklists, red flags and real-world methods.</p>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 flex justify-center">
+  <div class="rounded-3xl p-6 glass flex justify-center items-center">
+    <img
+      src="images/bookimg-removebg-preview.png"
+      alt="Book Mock"
+      class="w-full max-w-sm object-contain"
+    />
+  </div>
+</div>
+
+
+      <div class="lg:col-span-6 text-center lg:text-left">
+        <p class="text-muted mb-5">
+          This book is structured to help professionals apply forensic thinking immediately—through tools,
+          frameworks, templates, and practical examples.
+        </p>
+
+        <ul class="space-y-3 inline-block text-left">
+          <li class="flex gap-3">
+            <span class="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center text-xs font-extrabold"
+                  style="background: var(--orange); color: var(--black);">✓</span>
+            <span class="font-semibold text-muted">Fraud prevention frameworks and checklists</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center text-xs font-extrabold"
+                  style="background: var(--orange); color: var(--black);">✓</span>
+            <span class="font-semibold text-muted">Digital & AI risk playbook</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center text-xs font-extrabold"
+                  style="background: var(--orange); color: var(--black);">✓</span>
+            <span class="font-semibold text-muted">Governance and compliance templates</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center text-xs font-extrabold"
+                  style="background: var(--orange); color: var(--black);">✓</span>
+            <span class="font-semibold text-muted">Case patterns & red-flag indicators</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center text-xs font-extrabold"
+                  style="background: var(--orange); color: var(--black);">✓</span>
+            <span class="font-semibold text-muted">Investigation-ready documentation formats</span>
+          </li>
+        </ul>
+
+        <div class="mt-8">
+          <a href="javascript:void(0)"
+             class="open-buy inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-extrabold btn-primary orange-glow transition">
+            I want the book
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 bg-black">
+  <div class="section-wrap flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-soft text-center md:text-left">
+    <p>© 2026 CA Shareesh Gadde. All rights reserved.</p>
+    <div class="flex items-center gap-6 font-semibold justify-center md:justify-end">
+      <a href="#" class="hover:text-white transition">Privacy Policy</a>
+      <a href="#" class="hover:text-white transition">Terms of Sale</a>
+    </div>
+  </div>
+</footer>
+
+<!-- =======================
+     BUY POPUP FORM (MODAL)
+======================= -->
+<div id="buyModal" class="fixed inset-0 z-[999] hidden">
+  <div id="buyOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+  <div class="relative min-h-screen flex items-center justify-center p-5">
+    <div class="w-full max-w-lg glass rounded-3xl p-7 relative">
+      <button id="closeBuyModal"
+        class="absolute top-4 right-4 h-10 w-10 rounded-full glass flex items-center justify-center hover:opacity-90 transition"
+        aria-label="Close">
+        ✕
+      </button>
+
+      <h3 class="heading-main text-2xl sm:text-3xl text-center">
+        <span class="white">Get Your</span>
+        <span class="blue"> Copy</span>
+      </h3>
+      <p class="heading-sub text-center">
+        Fill the form — we’ll contact you with purchase details.
+      </p>
+
+      <form id="buyForm" class="mt-6 space-y-4">
+        <div>
+          <label class="text-sm font-semibold">Name</label>
+          <input required type="text" name="name"
+            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Enter your name">
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold">Phone</label>
+          <input required type="tel" name="phone"
+            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Enter your phone number">
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold">Email</label>
+          <input required type="email" name="email"
+            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Enter your email">
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold">Address</label>
+          <textarea required name="address" rows="3"
+            class="mt-2 w-full rounded-xl px-4 py-3 bg-black/40 border border-white/10 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Enter delivery address"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full rounded-xl px-6 py-3 text-sm font-extrabold btn-primary orange-glow transition">
+          Submit
+        </button>
+
+        <p class="text-xs text-soft text-center">
+          By submitting, you agree to be contacted for order confirmation.
+        </p>
+      </form>
+
+      <div id="buySuccess" class="hidden mt-6 text-center">
+        <div class="mx-auto h-12 w-12 rounded-full flex items-center justify-center text-xl font-extrabold"
+             style="background: var(--orange); color: var(--black);">✓</div>
+        <p class="mt-4 font-extrabold text-lg">Thank you!</p>
+        <p class="mt-1 text-muted">We received your details. We’ll contact you shortly.</p>
+        <button id="doneBuyModal"
+          class="mt-6 inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-extrabold transition"
+          style="background: var(--orange); color: var(--black);">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const buyModal = document.getElementById("buyModal");
+  const buyOverlay = document.getElementById("buyOverlay");
+  const closeBuyModal = document.getElementById("closeBuyModal");
+  const doneBuyModal = document.getElementById("doneBuyModal");
+
+  const buyForm = document.getElementById("buyForm");
+  const buySuccess = document.getElementById("buySuccess");
+
+  function openModal(){
+    buyModal.classList.remove("hidden");
+    document.body.classList.add("no-scroll");
+    buySuccess.classList.add("hidden");
+    buyForm.classList.remove("hidden");
+    buyForm.reset();
+  }
+
+  function closeModal(){
+    buyModal.classList.add("hidden");
+    document.body.classList.remove("no-scroll");
+  }
+
+  document.querySelectorAll(".open-buy").forEach(btn => {
+    btn.addEventListener("click", openModal);
+  });
+
+  buyOverlay.addEventListener("click", closeModal);
+  closeBuyModal.addEventListener("click", closeModal);
+  if(doneBuyModal) doneBuyModal.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && !buyModal.classList.contains("hidden")) closeModal();
+  });
+
+  buyForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    buyForm.classList.add("hidden");
+    buySuccess.classList.remove("hidden");
+  });
+</script>
+
+</body>
+</html>
